@@ -95,8 +95,12 @@
   * {
     @apply border-border;
   }
+  html {
+    font-family: var(--font-geist-sans);
+  }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-geist-mono); /* Use monospaced font for key labels */
+    /* Default font is now set on html by 'font-family: var(--font-geist-sans)' */
+    /* Tailwind's font-mono class will use var(--font-geist-mono) due to tailwind.config.ts */
   }
 }

@@ -1,17 +1,8 @@
 import type {Metadata} from 'next';
-import { GeistSans, GeistMono } from 'next/font/google'; // Corrected import
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-
-const geistSans = GeistSans({ // Corrected usage
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = GeistMono({ // Corrected usage
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'FloatType',
@@ -24,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark"> {/* Assuming dark theme by default */}
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} dark`}> {/* Apply font variables to html tag */}
+      <body className="antialiased"> {/* antialiased class for font smoothing */}
         {children}
         <Toaster />
       </body>
